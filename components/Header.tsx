@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/navigation"
 import { BiArrowBack } from "react-icons/bi"
 
