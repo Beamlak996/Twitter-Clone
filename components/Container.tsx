@@ -1,6 +1,7 @@
 import getCurrentUser from "@/actions/getCurrentUser";
 import FollowBar from "./layout/FollowBar";
 import Sidebar from "./layout/Sidebar";
+import getUsers from "@/actions/getUsers";
 
 type ContainerProps = {
   children: React.ReactNode;
@@ -8,6 +9,7 @@ type ContainerProps = {
 
 const Container = async ({ children }: ContainerProps) => {
   const currentUser = await getCurrentUser()
+  const users = await getUsers()
 
   return (
     <div className="h-screen bg-black">
@@ -17,7 +19,7 @@ const Container = async ({ children }: ContainerProps) => {
           <div className="col-span-3 lg:col-span-2 border-x-[1px] border-neutral-800">
             {children}
           </div>
-          <FollowBar  />
+          <FollowBar users={users}  />
         </div>
       </div>
     </div>
